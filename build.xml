@@ -1,0 +1,85 @@
+<project name="JSnip" default="dist" basedir=".">
+
+<!-- This is the Ant build script for the JSnip tool.
+     Written using Ant 1.6.1 (http://ant.apache.org/).
+-->
+
+  <property name="app.name"       value="jsnip"/>
+  <property name="src.dir"        value="src"/>
+  <property name="deploy.home"    value="./classes"/>
+  <property name="dist.jar"       value="${app.name}.jar"/>
+  <property name="bsh.dir"        value="beanshell"/>
+  <property name="img.dir"        value="buttons"/>
+  
+  <!-- Create the output directories for the classes -->
+  <target name="prepare" description="Create classes directory">
+    <mkdir dir="${deploy.home}"/>
+    <unzip src="jars/bsh-core-2.0b4.jar" dest="${bsh.dir}" overwrite="true">
+      <patternset>
+        <include name="**/*.class"/>
+      </patternset>
+    </unzip>
+    <unzip src="jars/jlfgr.jar" dest="${img.dir}" overwrite="true">
+      <patternset>
+        <include name="**/general/*24.gif"/>
+        <exclude name="**/general/Align*24.gif"/>
+        <exclude name="**/general/P*24.gif"/>
+        <exclude name="**/general/R*24.gif"/>
+        <exclude name="**/general/C*24.gif"/>
+        <exclude name="**/general/Z*24.gif"/>
+        <include name="**/media/Play24.gif"/>
+        <include name="**/media/Stop24.gif"/>
+        <include name="**/*.txt"/>
+      </patternset>
+    </unzip>
+  </target>
+
+  <!-- Delete the output directories for the classes -->
+  <target name="clean" description="Delete classes directory">
+    <delete dir="${deploy.home}"/>
+    <delete dir="${bsh.dir}"/>
+    <delete dir="${img.dir}"/>
+  </target>
+
+  <!-- Compile the source code (in 'src') and store in 'classes' -->
+  <target name="compile" depends="prepare" description="Compile the source code">
+    <javac srcdir="${src.dir}" destdir="${deploy.home}" target="1.5"
+           debug="on" optimize="off" deprecation="off" 
+           source="1.5" includeantruntime="false">
+      <classpath>
+         <pathelement path="${deploy.home}"/>
+         <pathelement location="jars/jlfgr-1_0.jar"/>
+         <pathelement location="jars/bsh-core-2.0b4.jar"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <!-- Generate the jar file -->
+  <target name="dist" depends="compile" description="Generate the jar file">
+    <jar destfile="./${dist.jar}">
+      <fileset dir="${deploy.home}"/>
+      <fileset dir="${bsh.dir}"/>
+      <fileset dir="${img.dir}"/>
+    	<fileset file="jsnip-icons.prop"/>
+      <manifest>
+        <attribute name="Built-By" value="Mike Wallace"/>
+        <attribute name="Main-Class" value="io.miti.jsnip.app.App"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <!-- Run the app -->
+  <target name="run" depends="dist" description="Run the application">
+    <java jar="jsnip.jar" fork="true" />
+  </target>
+
+  <!-- Delete the generated class files and compile all of the code -->
+  <target name="all" depends="clean,prepare"
+          description="Run the clean, prepare and compile targets"/>
+  
+  <!-- Zip up the source code -->
+  <target name="zipsource" description="Create a zip file of the source code">
+    <zip basedir="." destfile="./${app.name}-src.zip"
+     includes="build.xml, ${src.dir}/**, ${app.name}-icons.prop, jars/**.jar" />
+  </target>
+</project>

@@ -1,0 +1,31 @@
+# Properties file for JSnip
+
+# Toolbar button for File Open
+button.file_open=/toolbarButtonGraphics/general/Open24.gif
+
+# Toolbar button for File New
+button.file_new=/toolbarButtonGraphics/general/New24.gif
+
+# Toolbar button for File Save
+button.file_save=/toolbarButtonGraphics/general/Save24.gif
+
+# Toolbar button for File Save As
+button.file_save_as=/toolbarButtonGraphics/general/SaveAs24.gif
+
+# Toolbar button for Node New
+button.node_new=/toolbarButtonGraphics/general/Add24.gif
+
+# Toolbar button for Node Edit
+button.node_edit=/toolbarButtonGraphics/general/Edit24.gif
+
+# Toolbar button for Node Delete
+button.node_delete=/toolbarButtonGraphics/general/Delete24.gif
+
+# Toolbar button for executing a script
+button.script_play=/toolbarButtonGraphics/media/Play24.gif
+
+# Toolbar button for stopping a script
+button.script_stop=/toolbarButtonGraphics/media/Stop24.gif
+
+# Toolbar button for About
+button.about=/toolbarButtonGraphics/general/About24.gif
