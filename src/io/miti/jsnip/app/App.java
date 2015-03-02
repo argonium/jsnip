@@ -95,17 +95,6 @@ import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
-import com.nexagis.jsnip.app.CodeNode;
-import com.nexagis.jsnip.app.DragTree;
-import com.nexagis.jsnip.app.ISnippetEvent;
-import com.nexagis.jsnip.app.PanelOutputStream;
-import com.nexagis.jsnip.app.SnipFilter;
-import com.nexagis.jsnip.app.SnipKeyListener;
-import com.nexagis.jsnip.app.SnipTreeModelListener;
-import com.nexagis.jsnip.app.SnippetActionHandler;
-import com.nexagis.jsnip.app.SwingWorker;
-import com.nexagis.jsnip.app.TreeHandler;
-
 import bsh.EvalError;
 import bsh.Interpreter;
 

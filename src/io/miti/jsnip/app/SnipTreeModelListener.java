@@ -31,8 +31,6 @@ package io.miti.jsnip.app;
 import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
 
-import com.nexagis.jsnip.app.CodeNode;
-
 /**
  * The tree listener.
  * 

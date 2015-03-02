@@ -31,8 +31,6 @@ package io.miti.jsnip.app;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import com.nexagis.jsnip.app.ISnippetEvent;
-
 /**
  * Class to handle listening to particular key presses
  * in the tree.

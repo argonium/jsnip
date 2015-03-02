@@ -40,8 +40,6 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 
-import com.nexagis.ui.component.UIFSplitPane;
-
 
 /**
  * A very light version of the JGoodies <code>UIFactory</code> class.
