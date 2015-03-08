@@ -56,8 +56,8 @@ public final class SnipTreeModelListener implements TreeModelListener
   public void treeNodesChanged(final TreeModelEvent e)
   {
     // Get the changed node
-    CodeNode node =
-      (CodeNode) (e.getTreePath().getLastPathComponent());
+    CodeItemNode node =
+      (CodeItemNode) (e.getTreePath().getLastPathComponent());
     
     /*
      * If the event lists children, then the changed
@@ -68,7 +68,7 @@ public final class SnipTreeModelListener implements TreeModelListener
     try
     {
       int index = e.getChildIndices()[0];
-      node = (CodeNode) (node.getChildAt(index));
+      node = (CodeItemNode) (node.getChildAt(index));
     }
     catch (NullPointerException npe)
     {
