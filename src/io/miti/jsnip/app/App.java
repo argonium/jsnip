@@ -160,7 +160,7 @@ public final class App implements ISnippetEvent, WindowListener,
   /**
    * The root node of the tree.
    */
-  private CodeNode rootNode = null;
+  private CodeItemNode rootNode = null;
   
   /**
    * The menu item for creating a new node.
@@ -533,8 +533,8 @@ public final class App implements ISnippetEvent, WindowListener,
           if (path.getPathCount() > 0)
           {
             // Get the selected node
-            CodeNode node =
-              (CodeNode) path.getLastPathComponent();
+            CodeItemNode node =
+              (CodeItemNode) path.getLastPathComponent();
             
             // Save the script
             updatedScriptBackup = node.getScript();
@@ -619,8 +619,8 @@ public final class App implements ISnippetEvent, WindowListener,
       popupNewNode.setEnabled(true);
       
       // Get the current node
-      CodeNode currNode =
-        (CodeNode) (parentPath.getLastPathComponent());
+      CodeItemNode currNode =
+        (CodeItemNode) (parentPath.getLastPathComponent());
       
       // Save whether this is the root node
       boolean isRoot = (currNode.getParent() == null);
@@ -1539,8 +1539,8 @@ public final class App implements ISnippetEvent, WindowListener,
     if (path.getPathCount() > 0)
     {
       // Get the selected node
-      final CodeNode node =
-        (CodeNode) path.getLastPathComponent();
+      final CodeItemNode node =
+        (CodeItemNode) path.getLastPathComponent();
       
       // See if its script changed
       if ((scriptBackup == null) && (updatedScript == null))
@@ -1698,7 +1698,7 @@ public final class App implements ISnippetEvent, WindowListener,
   private void initializeTree()
   {
     // Create our tree hierarchy
-    rootNode = new CodeNode("Home");
+    rootNode = new CodeItemNode("Home");
     
     // Create the tree model
     treeModel = new DefaultTreeModel(rootNode);
@@ -2022,7 +2022,7 @@ public final class App implements ISnippetEvent, WindowListener,
       os = new ObjectInputStream(new FileInputStream(inFile));
       
       // Write the data
-      rootNode = (CodeNode) os.readObject();
+      rootNode = (CodeItemNode) os.readObject();
       
       // Clear the stream
       os.close();
@@ -2097,8 +2097,8 @@ public final class App implements ISnippetEvent, WindowListener,
     else
     {
       // Get the current node
-      CodeNode currNode =
-        (CodeNode) (parentPath.getLastPathComponent());
+      CodeItemNode currNode =
+        (CodeItemNode) (parentPath.getLastPathComponent());
       
       // See if the node has a parent
       if (currNode.getParent() == null)
@@ -2122,7 +2122,7 @@ public final class App implements ISnippetEvent, WindowListener,
       }
       
       // Check if this has a parent (if not, it's the root node)
-      CodeNode parent = (CodeNode) currNode.getParent();
+      CodeItemNode parent = (CodeItemNode) currNode.getParent();
       if (parent == null)
       {
         // The user cannot delete the root node
@@ -2146,7 +2146,7 @@ public final class App implements ISnippetEvent, WindowListener,
       treeModel.removeNodeFromParent(currNode);
       
       // Now select the next node
-      CodeNode selectNode = null;
+      CodeItemNode selectNode = null;
       if (nNumChildren == 1)
       {
         // This was the last node, so select the parent
@@ -2154,11 +2154,11 @@ public final class App implements ISnippetEvent, WindowListener,
       }
       else if (childNodeFromParent == (nNumChildren - 1))
       {
-        selectNode = (CodeNode) parent.getChildAt(childNodeFromParent - 1);
+        selectNode = (CodeItemNode) parent.getChildAt(childNodeFromParent - 1);
       }
       else
       {
-        selectNode = (CodeNode) parent.getChildAt(childNodeFromParent);
+        selectNode = (CodeItemNode) parent.getChildAt(childNodeFromParent);
       }
       
       // Now we want to select the selectNode node.
@@ -2189,8 +2189,8 @@ public final class App implements ISnippetEvent, WindowListener,
     else
     {
       // Get the current node
-      CodeNode currNode =
-        (CodeNode) (parentPath.getLastPathComponent());
+      CodeItemNode currNode =
+        (CodeItemNode) (parentPath.getLastPathComponent());
       
       // Check if this has a parent (if not, it's the root node)
       if (currNode.getParent() == null)
@@ -2218,12 +2218,12 @@ public final class App implements ISnippetEvent, WindowListener,
     if (parentPath != null)
     {
       // Get the current node
-      CodeNode currNode =
-        (CodeNode) (parentPath.getLastPathComponent());
+      CodeItemNode currNode =
+        (CodeItemNode) (parentPath.getLastPathComponent());
       
       // Create a new node
-      CodeNode newNode =
-        new CodeNode("New Node");
+      CodeItemNode newNode =
+        new CodeItemNode("New Node");
       newNode.setScript("");
       
       // Add the node to the tree
@@ -2248,8 +2248,8 @@ public final class App implements ISnippetEvent, WindowListener,
     if (parentPath != null)
     {
       // Get the current node
-      CodeNode currNode =
-        (CodeNode) (parentPath.getLastPathComponent());
+      CodeItemNode currNode =
+        (CodeItemNode) (parentPath.getLastPathComponent());
       
       // Get the node name
       String name = (String) currNode.getUserObject();
@@ -2330,8 +2330,8 @@ public final class App implements ISnippetEvent, WindowListener,
     if (parentPath != null)
     {
       // Get the current node
-      CodeNode currNode =
-        (CodeNode) (parentPath.getLastPathComponent());
+      CodeItemNode currNode =
+        (CodeItemNode) (parentPath.getLastPathComponent());
       
       // Update the node's name and reload the model
       currNode.setUserObject(name);
