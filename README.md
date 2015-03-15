@@ -1,7 +1,11 @@
 # JSnip
-JSnip is a desktop Java application that makes it easy to store, manage and execute snippets of Java code. The snippets can be stored in a hierarchy, saved to a file and loaded from the file. Nodes can be added to the tree and removed from the tree at will. JSnip uses the Beanshell library to execute the snippets.
+JSnip is a desktop Java application that makes it easy to store, manage and execute snippets of Java code. The snippets can be stored in a hierarchy, saved to a file and loaded from the file. Nodes can be added to the tree and removed from the tree at will. JSnip uses the [Beanshell](http://www.beanshell.org/) library to execute the snippets.
 
-The repository includes a data file with code from the Java Almanac. It's an excellent reference for doing a lot of common activities in Java but are not always easily remembered, such as reading data from a file.
+![JSnip](http://argonium.github.io/jsnip1.png)
+
+The repository includes a data file with code from the [Java Almanac](http://exampledepot.8waytrips.com/). It's an excellent reference for doing a lot of common activities in Java but are not always easily remembered, such as reading data from a file.
+
+![JSnip](http://argonium.github.io/jsnip2.png)
 
 The application requires Java 5 or later to build and execute.
 
